@@ -1,0 +1,48 @@
+program array_sum;
+
+type
+  TArray4x4 = array[1..4, 1..4] of integer;
+
+var
+  arr: TArray4x4;
+
+procedure InputNumber(var num: integer);
+begin
+  writeln('Введите число:');
+  readln(num);
+end;
+
+procedure FillArray(var arr: TArray4x4);
+var
+  i, j, num1, num2: integer;
+begin
+  for i := 1 to 4 do
+  begin
+    for j := 1 to 4 do
+    begin
+      InputNumber(num1);
+      InputNumber(num2);
+      arr[i,j] := num1 + num2;
+    end;
+  end;
+end;
+
+procedure PrintArray(var arr: TArray4x4);
+var
+  i, j: integer;
+begin
+  for i := 1 to 4 do
+  begin
+    for j := 1 to 4 do
+    begin
+      write(arr[i,j], ' ');
+    end;
+    writeln;
+  end;
+end;
+
+begin
+  FillArray(arr);
+  writeln('Сумма чисел в ячейках массива:');
+  PrintArray(arr);
+end.
